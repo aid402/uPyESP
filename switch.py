@@ -1,7 +1,5 @@
 from machine import Pin
 import time
-from machine import Pin
-led = Pin(2, Pin.OUT)
 button1 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
 button2 = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
 button3 = machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_UP)
