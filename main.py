@@ -1,4 +1,4 @@
-import machine,os,sys,network
+import machine,os,sys,network,time
 sta_if = network.WLAN(network.STA_IF)
 ap_stock = [('LP_wireles','1871157210')]
 if not sta_if.isconnected():
