@@ -6,10 +6,10 @@ if not sta_if.isconnected():
     for i in ap_scan:
         ap = i[0].decode('utf-8')
         for p in ap_stock:
-            if ap == ap_stock[p][0]:
+            if ap == p[0]:
                 print('connecting to network...')
                 sta_if.active(True)
-                sta_if.connect(ap_stock[p][0], ap_stock[p][1])
+                sta_if.connect(p[0], p[1])
                 while not sta_if.isconnected():
                     pass
                 break
