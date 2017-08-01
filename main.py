@@ -14,7 +14,7 @@ if not sta_if.isconnected():
                     pass
                 break
         if sta_if.isconnected():
-            print('network config:', sta_if.ifconfig())
+            print('network config ตามนี้:', sta_if.ifconfig())
             break
     if not sta_if.isconnected():
         print('STATION is not connect. Please connect by your self นะครับ')
