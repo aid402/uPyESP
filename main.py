@@ -1,9 +1,9 @@
 import machine,os,sys,network,time
 sta_if = network.WLAN(network.STA_IF)
-ap_stock = [('LP_wireles','1871157210')]
+ap_stock = [('LP_wireless','1871157210')] #My APs
 if not sta_if.isconnected():
-    aplist = sta_if.scan()
-    for i in aplist:
+    ap_scan = sta_if.scan()
+    for i in ap_scan:
         ap = str(i[0].'utf-8')
         for p in ap_stock:
             if ap == ap_stock[p][0]:
@@ -16,4 +16,7 @@ if not sta_if.isconnected():
         if sta_if.isconnected():
             print('network config:', sta_if.ifconfig())
             break
-
+    if not sta_if.isconnected():
+        print('STATION is not connect. Please connect by your self นะครับ')
+else:
+    print('network config:', sta_if.ifconfig())
