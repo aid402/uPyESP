@@ -4,7 +4,7 @@ ap_stock = [('LP_wireless','1871157210')] #My APs
 if not sta_if.isconnected():
     ap_scan = sta_if.scan()
     for i in ap_scan:
-        ap = str(i[0].'utf-8')
+        ap = i[0].decode('utf-8')
         for p in ap_stock:
             if ap == ap_stock[p][0]:
                 print('connecting to network...')
