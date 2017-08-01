@@ -1,8 +1,7 @@
-import apname,network
-sta_if = network.WLAN(network.STA_IF)
-ap_stock=apname.stock()
-
 def main():
+    import apname,network
+    sta_if = network.WLAN(network.STA_IF)
+    ap_stock=apname.stock()
     if not sta_if.isconnected():
         ap_scan = sta_if.scan()
         for i in ap_scan:
