@@ -5,7 +5,7 @@ def main():
     if not sta_if.isconnected():
         ap_scan = sta_if.scan()
         for i in ap_scan:
-            ap_i = i[0].decode('utf-8')
+            ap_i = bytes.decode(i[0])
             for p in ap_stock:
                 if ap_i == p[0]:
                     print('connecting to network...')
