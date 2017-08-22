@@ -1,7 +1,8 @@
 from machine import Pin
 import time
-def 
-button1 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
+
+class RELAYConfig:
+        button1 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
 light1 = machine.Pin(14, machine.Pin.OUT)
 light2 = machine.Pin(12, machine.Pin.OUT)
 light3 = machine.Pin(13, machine.Pin.OUT)
