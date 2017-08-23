@@ -1,5 +1,5 @@
 from machine import Pin
-from time import sleep
+from time import sleep_ms
 import onebutton
 
 #switch box @living room
@@ -18,4 +18,4 @@ while True:
         pass
     pattern = Box_01.push()
     Box_01.turn(pattern)
-    time.sleep_ms(300)
+    sleep_ms(300)
