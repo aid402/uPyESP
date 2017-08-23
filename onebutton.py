@@ -19,3 +19,4 @@ class RELAYConfig:
         self.state += 1
         if self.state >= len(self.relay) :
             self.state = 0
+        return self.state
