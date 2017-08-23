@@ -8,7 +8,7 @@ class Config:
         self.pinList = pinList
         self.numSwitch = len(pinList)
         self.patternList = patternList
-        self.switch_0 = pinSwitch[0]
+        self.switch_0 = pinList[0]
         if self.numSwitch > 1:
             self.switch_1 = Pin(pinList[1], Pin.OUT, value=0)
         if self.numSwitch > 2:
