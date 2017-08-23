@@ -1,5 +1,5 @@
 from machine import Pin
-from time import sleep
+from time import sleep_ms
 import onebutton
 
 #switch box @living room
@@ -28,4 +28,4 @@ while True:
         Box_01.turn(Box_01.push())
     if not button2.value():
         Box_02.turn(Box_02.push())   
-    time.sleep_ms(300)
+    sleep_ms(300)
