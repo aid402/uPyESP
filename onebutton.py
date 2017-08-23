@@ -2,19 +2,19 @@ from machine import Pin
 
 class Config:
         
-    def __init__(self, box_id, pinSwitch, patternList):
+    def __init__(self, box_id, pinList, patternList):
         self.state = 0
         self.box_id = box_id
-        self.pinSwitch = pinSwitch
-        self.numSwitch = len(pinSwitch)
+        self.pinList = pinSwitch
+        self.numSwitch = len(pinList)
         self.patternList = patternList
         self.switch_0 = pinSwitch[0]
         if self.numSwitch > 1:
-            self.switch_1 = Pin(pinSwitch[1], Pin.OUT, value=0)
+            self.switch_1 = Pin(pinList[1], Pin.OUT, value=0)
         if self.numSwitch > 2:
-            self.switch_2 = Pin(pinSwitch[2], Pin.OUT, value=0)
+            self.switch_2 = Pin(pinList[2], Pin.OUT, value=0)
         if self.numSwitch > 3:
-            self.switch_3 = Pin(pinSwitch[3], Pin.OUT, value=0)
+            self.switch_3 = Pin(pinList[3], Pin.OUT, value=0)
         #...
         #...
         
