@@ -1,12 +1,15 @@
 from machine import Pin
 
-class RELAYConfig:
+class Config:
         
-    def __init__(self, relaySet_id, pinButton, pinRelay, Pattern):
+    def __init__(self, box_id, pinButton, pinSwitch, patternList):
         self.state = 0
-        self.relaySet_id = relaySet_id
-        self.Pattern = Pattern
+        self.box_id = box_id
         self.Button = Pin(pinButton, Pin.IN, Pin.PULL_UP)
+        self.
+        self.patternList = patternList
+        
+        
         for i in range(len(pinRelay)):
             self.relay[i] = Pin(pinRelay[i], Pin.OUT, value=0)
         
