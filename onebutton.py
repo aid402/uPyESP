@@ -32,6 +32,6 @@ class Config:
 
     def push(self):
         self.state += 1
-        if self.state >= len(self.relay) :
+        if self.state >= self.numSwitch:
             self.state = 0
         return self.state
