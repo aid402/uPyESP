@@ -5,7 +5,7 @@ class Config:
     def __init__(self, box_id, pinList, patternList):
         self.state = 0
         self.box_id = box_id
-        self.pinList = pinSwitch
+        self.pinList = pinList
         self.numSwitch = len(pinList)
         self.patternList = patternList
         self.switch_0 = pinSwitch[0]
