@@ -1,5 +1,5 @@
 def connect():
-    import apname,network
+    import aplist,network
     from machine import Pin
     led = Pin(2,Pin.OUT,value=0)
     sta_if = network.WLAN(network.STA_IF)
