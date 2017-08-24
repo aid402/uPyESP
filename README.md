@@ -1,6 +1,6 @@
 # micropython esp project
 ## onebutton.py
-เป็น module ที่ใช้กำหนดค่า `Pin.value` หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `[patternList]`
+>เป็น module ที่ใช้กำหนดค่า `Pin.value` หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `[patternList]`
 
 **class onebutton.Config(Box_id, [pinList], [patternList])**
 
@@ -10,12 +10,12 @@
     
 **onebutton.turn(pattern_num)**
 
-กำหนดค่า Pin.value ตามรูปแบบ(pattern)
+>กำหนดค่า Pin.value ตามรูปแบบ(pattern)
     
 - `pattern_num` : ลำดับที่ pattern ใน `[patternList]`
 
 **onebutton.push()**
 
-เพิ่มค่า state (state+1) ซึ่งระบุลำดับที่ pattern และคืนกลับค่า state    
-ถ้า state มีค่าเท่ากับ จำนวน pattern ใน `[patternList]` จะคืนค่า state = 0
+>เพิ่มค่า state (state+1) ซึ่งระบุลำดับที่ pattern และคืนกลับค่า state    
+>ถ้า state มีค่าเท่ากับ จำนวน pattern ใน `[patternList]` จะคืนค่า state = 0
 
