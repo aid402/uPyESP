@@ -1,4 +1,4 @@
-def main():
+def connect():
     import apname,network
     sta_if = network.WLAN(network.STA_IF)
     ap_stock=apname.stock()
@@ -22,3 +22,4 @@ def main():
             led=off()
     else:
         print('network is connected:', sta_if.ifconfig())
+    return sta_if.ifconfig()[0]
