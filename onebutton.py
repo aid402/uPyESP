@@ -8,6 +8,7 @@ class Config:
         self.pinList = pinList
         self.numSwitch = len(pinList)
         self.patternList = patternList
+        self.numPattern = len(patternList)
         self.switch_0 = Pin(pinList[0], Pin.OUT, value=0)
         if self.numSwitch > 1:
             self.switch_1 = Pin(pinList[1], Pin.OUT, value=0)
@@ -32,6 +33,6 @@ class Config:
 
     def push(self):
         self.state += 1
-        if self.state >= self.numSwitch:
+        if self.state >= self.numPattern:
             self.state = 0
         return self.state
