@@ -1,8 +1,8 @@
 # micropython esp project
 ## onebutton.py
->เป็น module ที่ใช้กำหนดค่า `Pin.value` หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `[patternList]`
+onebutton เป็น module ที่ใช้กำหนดค่า `Pin.value` หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `[patternList]`
 
-class **onebutton.Config(Box_id, [pinList], [patternList]) \:**
+### *class* **onebutton.Config(Box_id, [pinList], [patternList]) \:**
 สร้าง object onebutton
 
 - `Box_id` : id ของกลุ่ม pin เช่น 'B01'
