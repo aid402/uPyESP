@@ -1,14 +1,14 @@
 # micropython esp project
 ## onebutton.py
-เป็น module ที่ใช้ควบคุม Pin.OUT หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `patternList`
+เป็น module ที่ใช้กำหนดค่า Pin.OUT หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้ใน `patternList`
 
 **class onebutton.Config(Box_id, [pinList], [patternList])**
 
-    - Box_id : id ของกลุ่ม pin เช่น B01
+    -Box_id : id ของกลุ่ม pin เช่น 'B01'
     
-    - [pinList] : รายการหมายเลข pin เช่น [12,13,14]
+    -[pinList] : รายการหมายเลข pin เช่น [12,13,14]
     
-    - [partternList] : รายการรูปแบบ เช่น ['000','100','010','111']
+    -[partternList] : รายการรูปแบบ(pattern) เช่น ['000','100','010','111']
     
 onebutton.turn(pattern_num)
     กำหนด pin.value ตามรูปแบบ(pattern)
