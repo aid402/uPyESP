@@ -1,7 +1,9 @@
 def connect():
     import apname,network
+    from machine import Pin
+    led = Pin(2,Pin.OUT,value=0)
     sta_if = network.WLAN(network.STA_IF)
-    ap_stock=apname.stock()
+    ap_stock = aplist.stock()
     if not sta_if.isconnected():
         ap_scan = sta_if.scan()
         for i in ap_scan:
@@ -15,8 +17,9 @@ def connect():
                         pass
                     break
             if sta_if.isconnected():
+                led.value(1)
+                return sta_if.ifconfig()[0]
                 break
-        if not sta_if.isconnected():
-            led=machine.Pin(2,machine.Pin.OUT)
-            led=off()
-    return sta_if.ifconfig()[0]
+    elif:
+        led.value(1)
+        return sta_if.ifconfig()[0]
