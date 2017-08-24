@@ -15,11 +15,8 @@ def connect():
                         pass
                     break
             if sta_if.isconnected():
-                print('network config :', sta_if.ifconfig())
                 break
         if not sta_if.isconnected():
             led=machine.Pin(2,machine.Pin.OUT)
             led=off()
-    else:
-        print('network is connected:', sta_if.ifconfig())
     return sta_if.ifconfig()[0]
