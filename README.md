@@ -4,6 +4,8 @@
 
 **class onebutton.Config(Box_id, [pinList], [patternList])**
 
+>สร้าง object onebutton
+
 - `Box_id` : id ของกลุ่ม pin เช่น 'B01'
 - `[pinList]` : รายการหมายเลข pin เช่น [12,13,14]   
 - `[partternList]` : รายการรูปแบบ(pattern) เช่น ['000','100','010','111']
