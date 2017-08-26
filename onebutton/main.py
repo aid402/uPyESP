@@ -1,23 +1,6 @@
 from umqtt.simple import MQTTClient
-import machine
 from time import sleep_ms
-import json
-import dht
-import ubinascii
-import onebutton
-
-led = machine.Pin(2,machine.Pin.OUT)
-#connect
-led.off()
-sta_if = network.WLAN(network.STA_IF)
-if not sta_if.isconnected():
-    sta_if.active(True)
-    sta_if.connect('LP_wireless', '1871157210')
-    while not sta_if.isconnected():
-        pass
-    ip_node = sta_if.ifconfig()[0]
-    print(ip_node)
-led.on()
+import machine,json,dht,ubinascii,onebutton,wifi
 
 # Modify below section as required
 CONFIG = {
@@ -29,26 +12,28 @@ CONFIG = {
      # unique identifier of the chip
      "CLIENT_ID": b"ESP8266" + ubinascii.hexlify(machine.unique_id())
 }
-Topic1=b"box1/pattern"
+Topic=b"box1/pattern"
 
 #switch box @living room
-boxID_1 = 'B1' 
-pinList_1 = [14,12,13]
-patList_1 = ['000','100','110','111','001']
+boxID = 'B1' 
+pinList = [14,12,13]
+patList = ['000','100','110','111','001']
 
 #create onebutton object
-box = onebutton.Config(boxID_1, pinList_1, patList_1)
+box = onebutton.Config(boxID, pinList, patList)
 
 #set pin 15 as button
 button = machine.Pin(15, machine.Pin.IN, machine.Pin.PULL_UP)
 
 def sub_cb(topic, msg):
-    if msg != box.patternList[box.state]:
+    if msg != box.pattern:
         led.off()
-        box.turn(msg)
+        box.pattern = msg
+        box.iturn()
         led.on()
         
 def main():
+    ip_node = wifi.connect()
     client = MQTTClient(CONFIG['CLIENT_ID'], CONFIG['MQTT_BROKER'], user=CONFIG['USER'], password=CONFIG['PASSWORD'], port=CONFIG['PORT'])
     client.set_callback(sub_cb)
     client.connect()
