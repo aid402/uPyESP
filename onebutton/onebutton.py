@@ -18,9 +18,8 @@ class Config:
             self.switch_3 = Pin(pinList[3], Pin.OUT, value=0)
         #...
         #...
-        
-    def turn(self, pattern_num):
-        p = self.patternList[pattern_num]
+
+    def iturn(self, p):
         self.switch_0.value(int(p[0]))
         if self.numSwitch > 1:
             self.switch_1.value(int(p[1]))
@@ -28,6 +27,12 @@ class Config:
             self.switch_2.value(int(p[2]))
         if self.numSwitch > 3:
             self.switch_3.value(int(p[3]))
+        #...
+        #...
+
+    def turn(self, pattern_num):
+        p = self.patternList[pattern_num]
+        iturn(self, p)
         #...
         #...
 
