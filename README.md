@@ -10,7 +10,7 @@ onebutton เป็น module ที่ใช้กำหนดค่า `Pin.va
 - `[patternList]` : รายการรูปแบบ(pattern) เช่น ['000','100','010','111']
 
 ### onebutton.iturn(pattern) \:
-กำหนดค่า Pin.value ตาม pattern
+กำหนดค่า Pin.value ตาม `pattern` ถ้าปล่อยว่าง จะใช้ค่า onebutton.pattern แทน
 - `pattern` : รูปแบบ(pattern) เช่น '010'
 
 ### onebutton.turn() \:
