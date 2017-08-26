@@ -25,7 +25,9 @@ while True:
     while not button1.value() or not button2.value():
         pass
     if not button1.value():
-        Box_01.turn(Box_01.push())
+        Box_01.push()
+        Box_01.turn()
     if not button2.value():
-        Box_02.turn(Box_02.push())   
+        Box_02.push()
+        Box_02.turn()   
     sleep_ms(300)
