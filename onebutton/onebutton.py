@@ -35,7 +35,7 @@ class Config:
 
     def turn(self):
         self.pattern = self.patternList[self.state]
-        iturn(self)
+        self.iturn()
         #...
         #...
 
