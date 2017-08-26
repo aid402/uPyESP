@@ -1,3 +1,3 @@
 def stock():
-    list = [('LP_wireless','1871157210'),('AndroidAP','zwwy8555')]
+    list = [('ssid1','password1'),('ssid2','password2')]
     return list
