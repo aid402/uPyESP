@@ -12,7 +12,9 @@ CONFIG = {
      # unique identifier of the chip
      "CLIENT_ID": b"ESP8266" + ubinascii.hexlify(machine.unique_id())
 }
-Topic=b"box1/pattern"
+Topic = b"box1/pattern"
+Topic1 = b"box1/msg"
+ip_node = wifi.connect()
 
 #switch box @living room
 boxID = 'B1' 
@@ -33,7 +35,7 @@ def sub_cb(topic, msg):
         led.on()
         
 def main():
-    ip_node = wifi.connect()
+
     client = MQTTClient(CONFIG['CLIENT_ID'], CONFIG['MQTT_BROKER'], user=CONFIG['USER'], password=CONFIG['PASSWORD'], port=CONFIG['PORT'])
     client.set_callback(sub_cb)
     client.connect()
@@ -43,7 +45,7 @@ def main():
         'IP':ip_node,
         'pattern':box.patternList[box.push()],
         })
-    client.publish(Topic1,msg)
+    client.publish(Topic,msg)
     while True:
         client.check_msg()
         if button.value():
@@ -52,7 +54,7 @@ def main():
                 'IP':ip_node,
                 'pattern':box.patternList[box.push()],
                 })
-            client.publish(Topic1,msg)
+            client.publish(Topic,msg)
             box.turn(box.patternList[box.state])
             sleep_ms(300)
             led.on()
