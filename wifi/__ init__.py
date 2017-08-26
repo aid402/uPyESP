@@ -10,7 +10,6 @@ def connect():
             ap_i = bytes.decode(i[0])
             for p in ap_stock:
                 if ap_i == p[0]:
-                    print('connecting to network...')
                     sta_if.active(True)
                     sta_if.connect(p[0], p[1])
                     while not sta_if.isconnected():
