@@ -9,7 +9,7 @@ led = machine.Pin(2,machine.Pin.OUT,value=0)
 sta_if = network.WLAN(network.STA_IF)
 if not sta_if.isconnected():
     sta_if.active(True)
-    sta_if.connect('LP_wireless', '1871157210')
+    sta_if.connect('ssid', 'password')
     while not sta_if.isconnected():
         pass
     node_ip = sta_if.ifconfig()[0]
