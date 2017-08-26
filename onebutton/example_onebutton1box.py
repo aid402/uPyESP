@@ -16,6 +16,6 @@ button1 = Pin(15, Pin.IN, Pin.PULL_UP)
 while True:
     while not button1.value():
         pass
-    pattern = Box_01.push()
-    Box_01.turn(pattern)
+    Box_01.push()
+    Box_01.turn()
     sleep_ms(300)
