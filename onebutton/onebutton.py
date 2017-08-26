@@ -4,6 +4,7 @@ class Config:
         
     def __init__(self, box_id, pinList, patternList):
         self.state = 0
+        self.pattern = []
         self.box_id = box_id
         self.pinList = pinList
         self.numSwitch = len(pinList)
@@ -19,7 +20,9 @@ class Config:
         #...
         #...
 
-    def iturn(self, p):
+    def iturn(self, p=None):
+        if p == None:
+           p = self.pattern
         self.switch_0.value(int(p[0]))
         if self.numSwitch > 1:
             self.switch_1.value(int(p[1]))
@@ -30,9 +33,9 @@ class Config:
         #...
         #...
 
-    def turn(self, pattern_num):
-        p = self.patternList[pattern_num]
-        iturn(self, p)
+    def turn(self):
+        self.pattern = self.patternList[self.state]
+        iturn(self)
         #...
         #...
 
