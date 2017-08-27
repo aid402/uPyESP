@@ -43,15 +43,16 @@ button = machine.Pin(15, machine.Pin.IN, machine.Pin.PULL_UP)
 
 def sub_cb(topic, msg):
     msg = json.loads(msg)
-    print(msg)
     if msg['pattern'] != box.pattern:
         led.off()
+        print(msg + "(from dashboard)")
         box.pattern = msg['pattern']
         box.iturn()
         if box.pattern in box.patternList:
             box.state = box.patternList.index(box.pattern)
         led.on()
-
+    else:
+        print(msg + "(button pressed)")
 #MQTT connect
 client = MQTTClient(CONFIG['CLIENT_ID'], CONFIG['MQTT_BROKER'], user=CONFIG['USER'], password=CONFIG['PASSWORD'], port=CONFIG['PORT'])
 client.set_callback(sub_cb)
