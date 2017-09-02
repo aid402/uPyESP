@@ -1,6 +1,6 @@
 from machine import Pin
 
-class Config:
+class switch:
         
     def __init__(self, box_id, pinList, patternList):
         self.state = 0
