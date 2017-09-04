@@ -15,7 +15,9 @@ if not sta_if.isconnected():
     while not sta_if.isconnected():
         pass
     ip_node = sta_if.ifconfig()[0]
-    print(ip_node)
+else:
+    ip_node = sta_if.ifconfig()[0]
+print(ip_node)
 led.on()
 
 # Setup a GPIO Pin for DHT22
@@ -39,14 +41,14 @@ def sub_cb(topic, msg):
     global state
     state = msg
 
-def main():
-    client = MQTTClient(CONFIG['CLIENT_ID'], CONFIG['MQTT_BROKER'], user=CONFIG['USER'], password=CONFIG['PASSWORD'], port=CONFIG['PORT'])
-    client.set_callback(sub_cb)
-    client.connect()
-    client.subscribe(Topic2)
-    while True:
-      client.check_msg()
-      if state == b"on":
+client = MQTTClient(CONFIG['CLIENT_ID'], CONFIG['MQTT_BROKER'], user=CONFIG['USER'], password=CONFIG['PASSWORD'], port=CONFIG['PORT'])
+client.set_callback(sub_cb)
+client.connect()
+client.subscribe(Topic2)
+
+while True:
+    client.check_msg()
+    if state == b"on":
         led.off()
         d.measure()
         msg = json.dumps({
@@ -56,7 +58,4 @@ def main():
           })
         client.publish(Topic1,msg)
         led.on()
-      sleep(1)
-    client.disconnect()
-
-main()
+    sleep(1)
