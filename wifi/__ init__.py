@@ -19,6 +19,6 @@ def connect():
                 led.value(1)
                 return sta_if.ifconfig()[0]
                 break
-    elif:
+    else:
         led.value(1)
         return sta_if.ifconfig()[0]
