@@ -27,9 +27,9 @@ def connect():
 def smartconfig():
     html = """<!DOCTYPE html>
     <html>
-        <head> <title>ESP8266 Pins</title> </head>
-        <body> <h1>ESP8266 Pins</h1>
-            <table border="1"> <tr><th>Pin</th><th>Value</th></tr> %s </table>
+        <head> <title>ESP8266 Smart Config</title> </head>
+        <body> <h1>ESP8266 Smart Config</h1>
+
         </body>
     </html>
     """
@@ -51,7 +51,7 @@ def smartconfig():
             line = cl_file.readline()
             if not line or line == b'\r\n':
                 break
-        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in pins]
+        rows = ['']
         response = html % '\n'.join(rows)
         cl.send(response)
         cl.close()
