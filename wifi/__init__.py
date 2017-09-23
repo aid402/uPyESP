@@ -29,7 +29,7 @@ def smartconfig():
     <html>
         <head> <title>ESP8266 Smart Config</title> </head>
         <body> <h1>ESP8266 Smart Config</h1>
-
+                <table border="1"> <tr><th>SSID</th><th>Value</th></tr> %s </table>
         </body>
     </html>
     """
@@ -42,7 +42,8 @@ def smartconfig():
     s.listen(1)
 
     print('listening on', addr)
-
+    ap_scan = sta_if.scan()
+    
     while True:
         cl, addr = s.accept()
         print('client connected from', addr)
@@ -51,7 +52,7 @@ def smartconfig():
             line = cl_file.readline()
             if not line or line == b'\r\n':
                 break
-        rows = ['']
+        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in ap_scan]
         response = html % '\n'.join(rows)
         cl.send(response)
-        cl.close()
+        cl.close()        
