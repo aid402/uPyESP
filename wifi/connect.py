@@ -1,7 +1,7 @@
 def connect():
     sta_if = network.WLAN(network.STA_IF)
     sta_if.active(True)
-    f = open('ap.list')
+    f = open('ap.txt')
     ap_stock = f.read()
     f.close()
     if not sta_if.isconnected():
