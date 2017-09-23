@@ -1,6 +1,9 @@
 def connect():
     sta_if = network.WLAN(network.STA_IF)
+    sta_if.active(True)
+    f = open('ap.list')
     ap_stock = f.read()
+    f.close()
     if not sta_if.isconnected():
         ap_scan = sta_if.scan()
         for i in ap_scan:
