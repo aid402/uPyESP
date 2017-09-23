@@ -1,28 +1,9 @@
-import aplist,network
+import network
+from wifi.aplist import aplist
+from wifi.connect import connect
+from wifi.smartconfig import smartconfig
 
-def connect():
-    from machine import Pin
-    led = Pin(2,Pin.OUT,value=0)
-    sta_if = network.WLAN(network.STA_IF)
-    ap_stock = aplist.stock()
-    if not sta_if.isconnected():
-        ap_scan = sta_if.scan()
-        for i in ap_scan:
-            ap_i = bytes.decode(i[0])
-            for p in ap_stock:
-                if ap_i == p[0]:
-                    sta_if.active(True)
-                    sta_if.connect(p[0], p[1])
-                    while not sta_if.isconnected():
-                        pass
-                    break
-            if sta_if.isconnected():
-                led.value(1)
-                return sta_if.ifconfig()[0]
-                break
-    else:
-        led.value(1)
-        return sta_if.ifconfig()[0]
+
 
 def smartconfig():
     html = """<!DOCTYPE html>
@@ -42,6 +23,7 @@ def smartconfig():
     s.listen(1)
 
     print('listening on', addr)
+    sta_if = network.WLAN(network.STA_IF)
     ap_scan = sta_if.scan()
     
     while True:
@@ -52,7 +34,7 @@ def smartconfig():
             line = cl_file.readline()
             if not line or line == b'\r\n':
                 break
-        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in ap_scan]
+        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (bytes.decode(i[0]), bytes.decode(i[1])) for i in ap_scan]
         response = html % '\n'.join(rows)
         cl.send(response)
         cl.close()        
