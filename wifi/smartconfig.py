@@ -3,7 +3,7 @@ def smartconfig():
     <html>
         <head> <title>ESP8266 Smart Config</title> </head>
         <body> <h1>ESP8266 Smart Config</h1>
-                <table border="1"> <tr><th>SSID</th><th>Value</th></tr> %s </table>
+                <table border="1"> <tr><th>SSID</th><th>channel</th><th>signal</th></tr> %s </table>
         </body>
     </html>
     """
@@ -27,7 +27,7 @@ def smartconfig():
             line = cl_file.readline()
             if not line or line == b'\r\n':
                 break
-        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (bytes.decode(i[0]), bytes.decode(i[1])) for i in ap_scan]
+        rows = ['<tr><td>%s</td><td>%d</td></tr>' % (bytes.decode(i[0]), bytes.decode(i[2], bytes.decode(i[3])) for i in ap_scan]
         response = html % '\n'.join(rows)
         cl.send(response)
         cl.close()
