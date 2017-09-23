@@ -1,4 +1,5 @@
 def connect():
+    import network
     sta_if = network.WLAN(network.STA_IF)
     sta_if.active(True)
     f = open('ap.txt')
@@ -18,6 +19,6 @@ def connect():
             if sta_if.isconnected():
                 return sta_if.ifconfig()[0]
             else:
-                return NULL
+                return
     else:
         return sta_if.ifconfig()[0]
