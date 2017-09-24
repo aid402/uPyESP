@@ -14,7 +14,7 @@ onebutton เป็น module ที่ใช้กำหนดค่า `Pin.va
 - `pattern` : รูปแบบ(pattern) เช่น '010'
 
 ### onebutton.turn() \:
-กำหนดค่า Pin.value ตามรูปแบบ(pattern) ใน `[patternList]` ซึ่งระบุลำดับที่โดย onebutton.state
+กำหนดค่า Pin.value ตามรูปแบบ(pattern) ใน `[patternList]` ซึ่งระบุ index โดย onebutton.state
     
 ### onebutton.push() \:
 เพิ่มค่า onebutton.state (onebutton.state+1) ซึ่งระบุ index ของ onebutton.patternList และคืนกลับค่า onebutton.state    
