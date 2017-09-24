@@ -17,5 +17,5 @@ onebutton เป็น module ที่ใช้กำหนดค่า `Pin.va
 กำหนดค่า Pin.value ตามรูปแบบ(pattern) ใน `[patternList]` ซึ่งระบุลำดับที่โดย onebutton.state
     
 ### onebutton.push() \:
-เพิ่มค่า state (state+1) ซึ่งระบุลำดับที่ pattern และคืนกลับค่า state    
-ถ้า state มีค่าเท่ากับ จำนวน pattern ใน `[patternList]` จะคืนค่า state = 0
+เพิ่มค่า onebutton.state (onebutton.state+1) ซึ่งระบุ index ของ onebutton.patternList และคืนกลับค่า onebutton.state    
+ถ้า onebutton.state มีค่าเท่ากับ len(onebutton.patternList) จะคืนค่า onebutton.state = 0
