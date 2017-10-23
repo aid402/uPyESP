@@ -1,4 +1,3 @@
-# micropython esp project
 ## onebutton.py
 onebutton เป็น module ที่ใช้กำหนดค่า `Pin.value` หลายๆ pin พร้อมกัน ตามรูปแบบ(pattern) ที่กำหนดไว้
 
