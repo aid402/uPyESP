@@ -167,7 +167,7 @@
         "type": "ui_switch",
         "z": "cf4304cf.19d9a8",
         "name": "",
-        "label": "switch",
+        "label": "Relay",
         "group": "19398c53.852dc4",
         "order": 0,
         "width": 0,
