@@ -1,0 +1,246 @@
+[
+    {
+        "id": "2c2a9d84.29eb22",
+        "type": "mqtt in",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "topic": "esp2/sensor",
+        "qos": "0",
+        "broker": "fc0002df.eadb6",
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "10814867.8c97a8"
+            ]
+        ]
+    },
+    {
+        "id": "10814867.8c97a8",
+        "type": "json",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "pretty": false,
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "50599bc6.3dde84",
+                "61d315a2.42cbbc",
+                "c731f48b.c4aba8"
+            ]
+        ]
+    },
+    {
+        "id": "5641dae6.986c14",
+        "type": "ui_gauge",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "group": "19398c53.852dc4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge",
+        "label": "",
+        "format": "{{'%.1f'|sprintf:value}}°C",
+        "min": "10",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "83f95f89.d6e15",
+        "type": "ui_gauge",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "group": "19398c53.852dc4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge",
+        "label": "",
+        "format": "{{'%.1f'|sprintf:value}}%",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "50599bc6.3dde84",
+        "type": "change",
+        "z": "cf4304cf.19d9a8",
+        "name": "temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "5641dae6.986c14"
+            ]
+        ]
+    },
+    {
+        "id": "61d315a2.42cbbc",
+        "type": "change",
+        "z": "cf4304cf.19d9a8",
+        "name": "humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "83f95f89.d6e15"
+            ]
+        ]
+    },
+    {
+        "id": "c731f48b.c4aba8",
+        "type": "debug",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "13bce965.0d4a27",
+        "type": "mqtt in",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "topic": "esp2/relay",
+        "qos": "0",
+        "broker": "fc0002df.eadb6",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "1bfce526.a2e3fb"
+            ]
+        ]
+    },
+    {
+        "id": "d8d32b02.e47158",
+        "type": "mqtt out",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "topic": "esp2/relay",
+        "qos": "2",
+        "retain": "",
+        "broker": "fc0002df.eadb6",
+        "x": 570,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1bfce526.a2e3fb",
+        "type": "ui_switch",
+        "z": "cf4304cf.19d9a8",
+        "name": "",
+        "label": "switch",
+        "group": "19398c53.852dc4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "d8d32b02.e47158"
+            ]
+        ]
+    },
+    {
+        "id": "fc0002df.eadb6",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "192.168.0.107",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "19398c53.852dc4",
+        "type": "ui_group",
+        "z": "",
+        "name": "test mqtt",
+        "tab": "68d0dd73.a234e4",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "68d0dd73.a234e4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
