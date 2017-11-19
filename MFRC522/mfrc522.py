@@ -15,7 +15,7 @@ class MFRC522_slave:
 
 	def __init__(self, spi, rst, cs):
 
-		self.rst = Pin(rst, Pin.OUT)
+		self.rst = rst
 		self.cs = Pin(cs, Pin.OUT)
 
 		self.rst.value(0)
