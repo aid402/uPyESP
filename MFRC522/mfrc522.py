@@ -1,4 +1,3 @@
-from machine import Pin
 from os import uname
 
 
