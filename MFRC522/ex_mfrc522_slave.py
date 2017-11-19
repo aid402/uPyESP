@@ -1,6 +1,5 @@
 from machine import Pin, SPI
 from mfrc522 import MFRC522_slave
-import module_spi2,module_spi2
 
 spi = SPI(-1,baudrate=100000, polarity=0, phase=0, sck=Pin(14), mosi=Pin(13), miso=Pin(12))
 rst = Pin(0,Pin.OUT)
