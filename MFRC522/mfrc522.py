@@ -1,6 +1,5 @@
 from os import uname
 
-
 class MFRC522_slave:
 
 	OK = 0
