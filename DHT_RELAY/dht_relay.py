@@ -1,4 +1,4 @@
-from umqtt import MQTTClient
+from umqtt.simple import MQTTClient
 from time import sleep
 import machine,network,json,dht
 
