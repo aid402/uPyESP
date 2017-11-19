@@ -2,7 +2,7 @@ from machine import Pin
 from os import uname
 
 
-class MFRC522:
+class MFRC522_slave:
 
 	OK = 0
 	NOTAGERR = 1
