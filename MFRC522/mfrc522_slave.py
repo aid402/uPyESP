@@ -1,4 +1,4 @@
-from machine import Pin, SPI
+from machine import Pin
 from os import uname
 
 
@@ -13,7 +13,7 @@ class MFRC522:
 	AUTHENT1A = 0x60
 	AUTHENT1B = 0x61
 
-	def __init__(self, rst, cs):
+	def __init__(self, spi, rst, cs):
 
 		self.rst = Pin(rst, Pin.OUT)
 		self.cs = Pin(cs, Pin.OUT)
@@ -24,7 +24,7 @@ class MFRC522:
 		board = uname()[0]
 
 		if board == 'esp8266':
-			self.spi = SPI(baudrate=100000, polarity=0, phase=0)
+			self.spi = spi
 			self.spi.init()
 		else:
 			raise RuntimeError("Unsupported platform")
